@@ -11,20 +11,20 @@
   <script>
     const ce = React.createElement
 
-    const MyTitle = () => {
+    const MyTitle = (props) => {
       return (
         ce('div', null,
-          ce('h1', null, 'My second component.')
+          ce('h1', null, props.title)
         )
       )
     }
 
     const MyFirstComponent = () => {
-      return ce('div', null,
-        ce(MyTitle),
-        ce(MyTitle),
-        ce(MyTitle),
-        ce(MyTitle)
+      return ce('div', { id: 'my-first-component'},
+        ce(MyTitle, { title: 'Sherlock'}),
+        ce(MyTitle, { title: 'Family Guy'}),
+        ce(MyTitle, { title: 'Shield'}),
+        ce(MyTitle, { title: 'Warehouse 13'})
       )
     }
 
